@@ -3,3 +3,8 @@ data/
 .claude/
 *.zip
 node_modules/
+
+dist-web/
+.vercel/
+
+.vercel

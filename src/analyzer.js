@@ -1,6 +1,8 @@
 // "Мозок" коуча: бере запис катки і видає оцінку, що чотко, що ні і що поміняти.
 // Кожна метрика має поріг [погано, добре] для ролі. Якщо є бенчмарки OpenDota по герою —
 // порівнюємо з реальними гравцями на цьому ж герої (перцентиль).
+// Працює і в Node, і в браузері (веб-версія).
+(function () {
 
 const ROLES = {
   carry:       { label: 'Керрі (1)',        core: true,  lh10: [40, 60], dn10: [4, 10], lpm: [4.8, 7.2], gpm: [430, 600], xpm: [480, 660], deaths10: [3.0, 1.3], unspent: [2200, 900], firstMajor: [22, 15] },
@@ -318,4 +320,7 @@ function prettify(s) {
   return (s || '').replace(/^item_/, '').split('_').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 }
 
-module.exports = { analyze, ROLES, mmss };
+const api = { analyze, ROLES, mmss };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  else window.Coach = api;
+})();
