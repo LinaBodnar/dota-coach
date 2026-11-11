@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dota Coach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M16 2 4 7v8c0 8 5 13 12 15 7-2 12-7 12-15V7z' fill='%23e5483f'/></svg>">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#" id="home">
+      <svg viewBox="0 0 32 32" width="30" height="30"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6a4d"/><stop offset="1" stop-color="#b3201a"/></linearGradient></defs><path d="M16 2 4 7v8c0 8 5 13 12 15 7-2 12-7 12-15V7z" fill="url(#lg)"/><path d="M11 10l10 12M21 10 11 22" stroke="#fff" stroke-width="2.6" stroke-linecap="round" opacity=".92"/></svg>
+      <span>DOTA<b>COACH</b></span>
+    </a>
+    <div class="top-right">
+      <button class="live-chip hidden" id="liveChip"><span class="dot"></span>LIVE <span id="liveClock">0:00</span></button>
+      <div class="status" id="status"><span class="dot"></span><span id="statusText">Чекаю на Доту…</span></div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="side">
+      <form class="import" id="importForm">
+        <label>Розібрати будь-яку катку</label>
+        <div class="row">
+          <input id="matchIdInput" inputmode="numeric" placeholder="Match ID, напр. 7891234567" autocomplete="off">
+          <button type="submit" class="btn btn-red" id="importBtn">Аналіз</button>
+        </div>
+        <small id="importHint">Дані беруться з OpenDota</small>
+      </form>
+      <div class="side-title">Мої катки <span id="count"></span></div>
+      <div class="list" id="list"></div>
+      <div class="side-foot">
+        <label>Твій Steam ID (32-біт)</label>
+        <input id="accountInput" placeholder="заповниться сам після першої гри" autocomplete="off">
+      </div>
+    </aside>
+    <main id="main"></main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
